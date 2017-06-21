@@ -14,13 +14,14 @@ gem 'geocoder'
 gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'oj'
+gem 'faker'
 
 #auth
 gem 'devise'
 gem 'cancancan'
 gem 'devise_token_auth'
 gem 'omniauth'
-
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug', platform: :mri
