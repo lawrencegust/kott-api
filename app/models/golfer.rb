@@ -3,7 +3,7 @@ class Golfer < ApplicationRecord
   extend FriendlyId
   friendly_id :random_slug, use: :slugged
 
-  devise :database_authenticatable, :registerable, :recoverable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+  devise :database_authenticatable, :registerable, :recoverable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
   geocoded_by :zipcode

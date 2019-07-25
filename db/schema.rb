@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602021827) do
+ActiveRecord::Schema.define(version: 20190725010743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,23 +49,31 @@ ActiveRecord::Schema.define(version: 20170602021827) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "zipcode"
-    t.string   "latitude"
-    t.string   "longitude"
     t.string   "username"
     t.string   "status"
+    t.boolean  "ready_to_play",          default: false
+    t.float    "longitude"
+    t.float    "latitude"
     t.index ["email"], name: "index_golfers_on_email", using: :btree
     t.index ["handicap"], name: "index_golfers_on_handicap", using: :btree
     t.index ["reset_password_token"], name: "index_golfers_on_reset_password_token", unique: true, using: :btree
     t.index ["uid", "provider"], name: "index_golfers_on_uid_and_provider", unique: true, using: :btree
   end
 
-  create_table "roster_slots", force: :cascade do |t|
+  create_table "leads", force: :cascade do |t|
+    t.string   "email"
+    t.string   "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
     t.integer  "golfer_id"
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["golfer_id"], name: "index_roster_slots_on_golfer_id", using: :btree
-    t.index ["team_id"], name: "index_roster_slots_on_team_id", using: :btree
+    t.index ["golfer_id"], name: "index_players_on_golfer_id", using: :btree
+    t.index ["team_id"], name: "index_players_on_team_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|

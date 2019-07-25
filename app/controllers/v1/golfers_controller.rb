@@ -8,7 +8,12 @@ module V1
     end
 
     def index
-      @golfers = Golfer.all
+      if params[:nearby]
+        @golfers = Golfer.near(params[:nearby])
+      else
+        @golfers = Golfer.all
+      end
+
       render json: @golfers
     end
 

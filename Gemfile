@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 gem 'pg'
@@ -9,12 +9,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'aasm'
 gem 'friendly_id'
 gem 'geocoder'
+gem 'slack-ruby-client'
 
 #api
 gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'oj'
 gem 'faker'
+gem 'sidekiq'
 
 #auth
 gem 'devise'

@@ -1,4 +1,4 @@
-class RosterSlot < ApplicationRecord
+class Player < ApplicationRecord
   belongs_to :golfer
   belongs_to :team
 
